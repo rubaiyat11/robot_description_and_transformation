@@ -2,7 +2,31 @@
 <robot name="my_first_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="robot_core.xacro"/>
-
   <xacro:robot_core/>
+
+  <ros2_control name="MyRobot" type="system">
+    <hardware>
+      <plugin>mock_components/GenericSystem</plugin>
+    </hardware>
+
+    <joint name="shoulder_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="elbow_link_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="wrist_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+  </ros2_control>
 
 </robot>
